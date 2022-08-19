@@ -1,5 +1,6 @@
-p {
+.p1 {
+    font-family: "Sofia", sans-serif;  /* Sofia ist von Google Fonts */
     color: red;
-    font: 1em sans-serif;
+    font-size: 30px;
     }
     
