@@ -1,0 +1,36 @@
+@page "/todolist"
+@using Data
+@inject ToDoService ToDoService
+
+<h3>ToDo Liste</h3>
+
+<input type="text" @bind="newItemTitle" />
+<button @onclick="AddItem">Hinzufügen</button>
+
+<ul>
+@foreach (var item in toDoItems)
+{
+    <li>
+    <input type="checkbox" @bind="item.IsDone" />
+    @item.Title
+    </li>
+}
+</ul>
+
+@code {
+    private string newItemTitle;
+    private List<ToDoItem> toDoItems;
+
+    protected override void OnInitialized()
+    {
+        toDoItems = ToDoService.GetToDoItems().ToList();
+    }
+
+    private void AddItem()
+    {
+        var newItem = new ToDoItem { Title = newItemTitle, IsDone = false };
+        ToDoService.AddToDoItem(newItem);
+        newItemTitle = string.Empty;
+        toDoItems = ToDoService.GetToDoItems().ToList();
+    }
+}
