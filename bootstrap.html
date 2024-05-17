@@ -1,835 +1,131 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Hello, world!</title>
-  </head>
-  <body>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="row">
-                <div class="col-xs-12 col-md-4">
-                    Versicherungsnehmer - {{vn.id}} {{vn.vorname}} {{vn.nachname}}
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card" >
+                    <div class="card-body">                     
+                            <form>
+                                <h5>Daten zur Person</h5>
+                                <div class="mb-3">
+                                    <label for="anrede" class="form-label">Anrede</label>
+                                    <select id="anrede" class="form-select">
+                                        <option value="Herr">Herr</option>
+                                        <option value="Frau">Frau</option>
+                                        <option value="Divers">Divers</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="titel" class="form-label">Titel</label>
+                                    <input type="text" class="form-control" id="titel">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="vorname" class="form-label">Vorname</label>
+                                    <input type="text" class="form-control" id="vorname" value="Franz">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nachname" class="form-label">Nachname <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="nachname" value="Bechtel">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="partnerVorname" class="form-label">Partner Vorname</label>
+                                    <input type="text" class="form-control" id="partnerVorname">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="partnerNachname" class="form-label">Partner Nachname</label>
+                                    <input type="text" class="form-control" id="partnerNachname">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nameZusatz1" class="form-label">Name Zusatz 1</label>
+                                    <input type="text" class="form-control" id="nameZusatz1" value="Klimatechnik">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nameZusatz2" class="form-label">Name Zusatz 2</label>
+                                    <input type="text" class="form-control" id="nameZusatz2">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="briefanrede" class="form-label">Briefanrede</label>
+                                    <textarea class="form-control" id="briefanrede"
+                                        rows="2">Sehr geehrter Herr Bechtel,</textarea>
+                                </div>
+                            </form>                    
+                    </div>
                 </div>
-                <div class="col-xs-12 col-md-1 col-md-offset-7">
-                    <span class="label label-danger" *ngIf="(vn.id != -1)">in Bearbeitung...</span>
-                    <span class="label label-danger" *ngIf="(vn.id == -1)">Neuanlage...</span>
+            </div>
+            <div class="col">
+                <div class="card" >
+                    <div class="card-body">                  
+                            <form>
+                                <h5>Anschrift</h5>
+                                <div class="mb-3">
+                                    <label for="anrede" class="form-label">Anrede</label>
+                                    <select id="anrede" class="form-select">
+                                        <option value="Herr">Herr</option>
+                                        <option value="Frau">Frau</option>
+                                        <option value="Divers">Divers</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="titel" class="form-label">Titel</label>
+                                    <input type="text" class="form-control" id="titel">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="vorname" class="form-label">Vorname</label>
+                                    <input type="text" class="form-control" id="vorname" value="Franz">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nachname" class="form-label">Nachname <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="nachname" value="Bechtel">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="partnerVorname" class="form-label">Partner Vorname</label>
+                                    <input type="text" class="form-control" id="partnerVorname">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="partnerNachname" class="form-label">Partner Nachname</label>
+                                    <input type="text" class="form-control" id="partnerNachname">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nameZusatz1" class="form-label">Name Zusatz 1</label>
+                                    <input type="text" class="form-control" id="nameZusatz1" value="Klimatechnik">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nameZusatz2" class="form-label">Name Zusatz 2</label>
+                                    <input type="text" class="form-control" id="nameZusatz2">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="briefanrede" class="form-label">Briefanrede</label>
+                                    <textarea class="form-control" id="briefanrede"
+                                        rows="2">Sehr geehrter Herr Bechtel,</textarea>
+                                </div>
+                            </form>                 
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="panel-body">
-            <form class="form-horizontal" #formVnEdit="ngForm">
-                <div class="row">
-                    <div class="col-md-4">
-                        <!-- Kundennummer -->
-                        <div class="form-group form-group-sm">
-                            <!-- FP / KV / UV / UVK / KFZ / HE / RS -->
-                            <label for="vnKundennr" class="col-md-4 control-label">Kundennummer:</label>
-                            <div class="col-md-4">
-                                <input type="text" id="vnKundennr" name="vnKundennr" class="form-control" placeholder="Kundennummer" aria-label="Kundennummer" [(ngModel)]="vn.kundennr" />
-                            </div>
-                        </div>
-                        <!-- Anrede / Titel -->
-                        <div class="form-group form-group-sm">
-                            <!-- FP / KV / UV / UVK / KFZ / HE / RS -->
-                            <label for="vnAnrede" class="col-md-4 control-label">Anrede/Titel:</label>
-                            <!-- Anrede -->
-                            <div class="col-md-4">
-                                <select id="vnAnrede" name="vnAnrede" class="form-control" aria-label="Anrede" [(ngModel)]="vn.anrede">
-                                    <option [value]="0" disabled hidden>Anrede</option>
-                                    <option [value]="1">Herr</option>
-                                    <option [value]="2">Frau</option>
-                                    <option [value]="3">Familie</option>
-                                    <option [value]="4">Firma</option>
-                                </select>
-                            </div>
-                            <!-- Titel -->
-                            <div class="col-md-4">
-                                <input type="text" id="vnTitel" name="vnTitel" class="form-control" placeholder="Titel" aria-label="Titel" [(ngModel)]="vn.titel" />
-                            </div>
-                        </div>
-                        <!-- Vorname -->
-                        <div class="form-group form-group-sm">
-                            <!-- FP / KV / UV / UVK / KFZ / HE / RS -->
-                            <label for="vnVorname" class="col-md-4 control-label">Vorname:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnVorname" name="vnVorname" class="form-control" [ngClass]="{required: modus == 'angebot' || modus == 'antrag'}" placeholder="Vorname" aria-label="Vorname" [(ngModel)]="vn.vorname" #vnVorname="ngModel" [required]="modus == 'angebot' || modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnVorname.invalid && (vnVorname.dirty || vnVorname.touched)">
-                                    <span *ngIf="vnVorname.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Nachname -->
-                        <div class="form-group form-group-sm">
-                            <!-- FP / KV / UV / UVK / KFZ / HE / RS -->
-                            <label for="vnNachname" class="col-md-4 control-label">Nachname:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnNachname" name="vnNachname" class="form-control" [ngClass]="{required:modus == 'angebot' || modus == 'antrag'}" placeholder="Nachname" aria-label="Nachname" [(ngModel)]="vn.nachname" #vnNachname="ngModel" [required]="modus == 'angebot' || modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnNachname.invalid && (vnNachname.dirty || vnNachname.touched)">
-                                    <span *ngIf="vnNachname.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Geburtsdatum -->
-                        <div class="form-group form-group-sm">
-                            <!-- FP / KV / UV / UVK / KFZ / HE / RS -->
-                            <label for="vnGebDatum" class="col-md-4 control-label">Geburtsdatum:</label>
-                            <div class="col-md-8">
-                                <input type="date" id="vnGebDatum" name="vnGebDatum" class="form-control" [ngClass]="{required:modus == 'angebot' || modus == 'antrag'}" placeholder="Geburtsdatum" aria-label="Geburtsdatum" [(ngModel)]="vn.geburtsdatum" #vnGeburtsdatum="ngModel" [required]="modus == 'angebot' || modus == 'antrag' ? 'required' : null" useValueAsDate />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnGeburtsdatum.invalid && (vnGeburtsdatum.dirty || vnGeburtsdatum.touched)">
-                                    <span *ngIf="vnGeburtsdatum.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <!-- Strasse / Nr -->
-                        <div class="form-group form-group-sm">
-                            <!-- FP / KV / UV / KFZ / HE / RS -->
-                            <label for="vnStrasseNr" class="col-md-4 control-label">Straße/Nr.:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnStrasseNr" name="vnStrasseNr" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="Straße/Nr." aria-label="Straße/Nr." [(ngModel)]="vn.adresse.strasseNr" #vnAdresseStrasseNr="ngModel" [required]="modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnAdresseStrasseNr.invalid && (vnAdresseStrasseNr.dirty || vnAdresseStrasseNr.touched)">
-                                    <span *ngIf="vnAdresseStrasseNr.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- PLZ/Ort -->
-                        <div class="form-group form-group-sm">
-                            <!-- FP / KV / UV / UVK / KFZ / HE / R -->
-                            <label for="vnPlz" class="col-md-4 control-label">PLZ/Ort:</label>
-                            <!-- PLZ -->
-                            <div class="col-md-3">
-                                <input type="text" id="vnPlz" name="vnPlz" class="form-control" [ngClass]="{required: modus == 'angebot' || modus == 'antrag'}" placeholder="PLZ" aria-label="Plz" [(ngModel)]="vn.adresse.plz" #vnAdressePlz="ngModel" [required]="modus == 'angebot' || modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnAdressePlz.invalid && (vnAdressePlz.dirty || vnAdressePlz.touched)">
-                                    <span *ngIf="vnAdressePlz.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                            <!-- Ort -->
-                            <div class="col-md-5">
-                                <input type="text" id="vnOrt" name="vnOrt" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="Ort" aria-label="Ort" [(ngModel)]="vn.adresse.ort" #vnAdresseOrt="ngModel" [required]="modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnAdresseOrt.invalid && (vnAdresseOrt.dirty || vnAdresseOrt.touched)">
-                                    <span *ngIf="vnAdresseOrt.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Tel -->
-                        <div class="form-group form-group-sm">
-                            <!-- FP / KV / UV / UVK / KFZ / HE / RS -->
-                            <label for="vnTel" class="col-md-4 control-label">Telefon:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnTel" name="vnTel" class="form-control" placeholder="Tel" aria-label="Tel" [(ngModel)]="vn.kontakt.tel" />
-                            </div>
-                        </div>
-                        <!-- Mobil -->
-                        <div class="form-group form-group-sm">
-                            <!-- FP / KV / UV / UVK / KFZ / HE / RS -->
-                            <label for="vnMobil" class="col-md-4 control-label">Mobil:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnMobil" name="vnMobil" class="form-control" placeholder="Mobil" aria-label="Mobil" [(ngModel)]="vn.kontakt.mobil" />
-                            </div>
-                        </div>
-                        <!-- EMail -->
-                        <div class="form-group form-group-sm">
-                            <!-- FP / KV / UV / UVK / KFZ / HE / RS -->
-                            <label for="vnEmail" class="col-md-4 control-label">E-Mail:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnEmail" name="vnEmail" class="form-control" placeholder="E-Mail" aria-label="E-Mail" [(ngModel)]="vn.kontakt.email" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <!-- Familienstand -->
-                        <div class="form-group form-group-sm" *ngIf="(isEnabledPFp || isEnabledPKv)">
-                            <!-- FP / KV -->
-                            <label for="vnFamilienstandLedig" class="col-md-4 control-label">Familienstand:</label>
-                            <div class="col-md-8">
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnFamilienstand_Ledig" name="vnFamilienstand" [value]="1" [(ngModel)]="vn.familienstand" /> ledig
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnFamilienstand_Verheiratet" name="vnFamilienstand" [value]="2" [(ngModel)]="vn.familienstand" /> verheiratet
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnFamilienstand_Geschieden" name="vnFamilienstand" [value]="3" [(ngModel)]="vn.familienstand" /> geschieden
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnFamilienstand_Verwitwet" name="vnFamilienstand" [value]="4" [(ngModel)]="vn.familienstand" /> verwitwet
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnFamilienstand_Lebensgemeinschaft" name="vnFamilienstand" [value]="5" [(ngModel)]="vn.familienstand" /> Lebensgemeinschaft
-                                </label>
-                            </div>
-                        </div>
-                        <!-- SVAnstalt / SVNr -->
-                        <div class="form-group form-group-sm" *ngIf="(isEnabledPFp || isEnabledPKv)">
-                            <!-- FP / KV / UV / UVK -->
-                            <label for="vnSvAnstalt" class="col-md-4 control-label">SV-Anstalt/Nr:</label>
-                            <!-- SVAnstalt -->
-                            <div class="col-md-4">
-                                <select id="vnSvAnstalt" name="vnSvAnstalt" class="form-control" [ngClass]="{required:modus == 'antrag'}" aria-label="SV-Anstalt" [(ngModel)]="vn.svAnstalt" #vnSvAnstalt="ngModel" [required]="modus == 'antrag' ? 'required' : null">
-                                    <option [value]="0" disabled selected hidden>SV-Anstalt</option>
-                                    <option [value]="1">GKK</option>
-                                    <option [value]="2">KFA</option>
-                                    <option [value]="3">GSKK/SL</option>
-                                    <option [value]="4">GSKK/GL</option>
-                                    <option [value]="5">BVA</option>
-                                    <option [value]="6">VAEB</option>
-                                    <option [value]="7">SVB</option>
-                                    <option [value]="8">BKK</option>
-                                    <option [value]="9">KFG</option>
-                                </select>
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnSvAnstalt.invalid && (vnSvAnstalt.dirty || vnSvAnstalt.touched)">
-                                    <span *ngIf="vnSvAnstalt == 0">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                            <!-- SVNr -->
-                            <div class="col-md-4">
-                                <input type="text" id="vnSvNr" name="vnSvNr" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="SV-Nummer" aria-label="Titel" [(ngModel)]="vn.svNr" #vnSvNr="ngModel" [required]="modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnSvNr.invalid && (vnSvNr.dirty || vnSvNr.touched)">
-                                    <span *ngIf="vnSvNr.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Hausarzt -->
-                        <div class="form-group form-group-sm" *ngIf="(isEnabledPFp || isEnabledPKv)">
-                            <!-- FP / KV -->
-                            <label for="vnHausarzt" class="col-md-4 control-label">Hausarzt:</label>
-                            <div class="col-md-8">
-                                <textarea id="vnHausarzt" name="vnHausarzt" class="form-control" rows="3" placeholder="Name, Adresse, Telefonnummer des Hausarztes" aria-label="Name, Adresse, Telefonnummer des Hausarztes" [(ngModel)]="vn.hausarzt"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr />
-                <div class="row">
-                    <div class="col-md-4">
-                        <!-- Art der Beschäftigung -->
-                        <div class="form-group form-group-sm" *ngIf="(isEnabledPKv || isEnabledPKfz || isEnabledPHe || isEnabledPRs)">
-                            <!-- KV / KFZ / HE / RS -->
-                            <label for="vnArtBeschaeftigungUnselbstaendig" class="col-md-4 control-label">Art der Beschäftigung:</label>
-                            <div class="col-md-8">
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnArtBeschaeftigungUnselbstaendig" name="vnArtBeschaeftigung" [value]="2" [(ngModel)]="vn.artBeschaeftigung" /> unselbständig
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnArtBeschaeftigungSelbstaendig" name="vnArtBeschaeftigung" [value]="1" [(ngModel)]="vn.artBeschaeftigung" /> selbständig
-                                </label>
-                            </div>
-                        </div>
-                        <!-- Beruf -->
-                        <div class="form-group form-group-sm" *ngIf="(isEnabledPKv || isEnabledPKfz || isEnabledPHe || isEnabledPRs)">
-                            <!-- KV / KFZ / HE / RS -->
-                            <label for="vnBeruf" class="col-md-4 control-label">Beruf:</label>
-                            <div class="col-md-8">
-                                <select id="vnBeruf" name="vnBeruf" class="form-control" aria-label="Beruf" [(ngModel)]="vn.beruf">
-                                    <option value="" disabled hidden>Beruf</option>
-                                    <option value="kan">keine Angabe</option>
-                                    <option value="nbt">nicht berufstätig</option>
-                                    <option value="aht">Arbeiter im Hoch- und Tiefbau</option>
-                                    <option value="lwf">Landwirte, Wald- und Forstarbeiter</option>
-                                    <option value="dsz">Dachdecker, Spengler, Zimmermann</option>
-                                    <option value="hbv">Holzbearbeiter, -verarbeiter</option>
-                                    <option value="pia">Polizist im Außendienst</option>
-                                    <option value="azt">Arzt, Zahnarzt, Tierarzt, Zahntechniker oder Musiker (erhöhte Gliedertaxe)</option>
-                                    <option value="aab">Alle anderen Berufe</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Besonderer Arbeitsgeber -->
-                        <div class="form-group form-group-sm" *ngIf="(isEnabledPKfz)">
-                            <!-- KFZ -->
-                            <label for="vnBesondererArbeitgeber" class="col-md-4 control-label">Bes. Arbeitgeber:</label>
-                            <div class="col-md-8">
-                                <select id="vnBesondererArbeitgeber" name="vnBesondererArbeitgeber" class="form-control" aria-label="Besonderer Arbeitgeber" [(ngModel)]="vn.besondererArbeitgeber">
-                                    <option value="" disabled hidden>Besonderer Arbeitgeber</option>
-                                    <option value="Nein">Nein</option>
-                                    <option value="Öffentlicher Dienst">Öffentlicher Dienst</option>
-                                    <option value="Sozialversicherungsträger">Sozialversicherungsträger</option>
-                                    <option value="Diverse Firmenzugehörigkeiten">Diverse Firmenzugehörigkeiten</option>
-                                    <option value="Ausgegliederte Betriebe des Bundes">Ausgegliederte Betriebe des Bundes</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Besonderer Beruf -->
-                        <div class="form-group form-group-sm" *ngIf="(vn.besondererArbeitgeber != '' && vn.besondererArbeitgeber != 'Nein')">
-                            <!-- KFZ -->
-                            <label for="vnBesondererBeruf" class="col-md-4 control-label">Bes. Beruf:</label>
-                            <div class="col-md-8">
-                                <select id="vnBesondererBeruf" name="vnBesondererBeruf" class="form-control" [ngClass]="{required:vn.besondererArbeitgeber != '' || vn.besondererArbeitgeber != 'Nein'}" aria-label="Besonderer Beruf" [(ngModel)]="vn.besondererBeruf">
-                                    <option value="" disabled hidden>Besonderer Arbeitgeber</option>
-                                    <!-- Öffentlicher Dienst -->
-                                    <option value="Berufsfeuerwehr" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Berufsfeuerwehr</option>
-                                    <option value="Bezirkshauptmannschaft" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Bezirkshauptmannschaft</option>
-                                    <option value="Bundesbedienstete" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Bundesbedienstete</option>
-                                    <option value="Bundesheer" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Bundesheer</option>
-                                    <option value="Gemeindebedienstete" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Gemeindebedienstete</option>
-                                    <option value="Justiz" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Justiz</option>
-                                    <option value="Krankenhaus" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Krankenhaus</option>
-                                    <option value="Landesbedienstete" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Landesbedienstete</option>
-                                    <option value="Magistratsbedienstete" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Magistratsbedienstete</option>
-                                    <option value="Ministerium" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Ministerium</option>
-                                    <option value="Polizei" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Polizei</option>
-                                    <option value="Universität" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Universität</option>
-                                    <option value="Verkehrsbetriebe" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Verkehrsbetriebe</option>
-                                    <option value="Sämtliche Banken und Sparkassen" *ngIf="(vn.besondererArbeitgeber == 'Öffentlicher Dienst')">Sämtliche Banken und Sparkassen</option>
-                                    <!-- Sozialversicherungsträger -->
-                                    <option value="AUVA" *ngIf="(vn.besondererArbeitgeber == 'Sozialversicherungsträger')">AUVA</option>
-                                    <option value="BVA" *ngIf="(vn.besondererArbeitgeber == 'Sozialversicherungsträger')">BVA</option>
-                                    <option value="Sozialversicherung der Gewerblichen Wirtschaft" *ngIf="(vn.besondererArbeitgeber == 'Sozialversicherungsträger')">Sozialversicherung der Gewerblichen Wirtschaft</option>
-                                    <option value="Kammern" *ngIf="(vn.besondererArbeitgeber == 'Sozialversicherungsträger')">Kammern</option>
-                                    <option value="Arbeiterkammer und BFI" *ngIf="(vn.besondererArbeitgeber == 'Sozialversicherungsträger')">Arbeiterkammer und BFI</option>
-                                    <option value="Bundeswirtschaftskammer" *ngIf="(vn.besondererArbeitgeber == 'Sozialversicherungsträger')">Bundeswirtschaftskammer</option>
-                                    <option value="Handelskammer" *ngIf="(vn.besondererArbeitgeber == 'Sozialversicherungsträger')">Handelskammer</option>
-                                    <option value="Kammer der gewerblichen Wirtschaft, WIFI" *ngIf="(vn.besondererArbeitgeber == 'Sozialversicherungsträger')">Kammer der gewerblichen Wirtschaft, WIFI</option>
-                                    <option value="Landwirtschaftskammer" *ngIf="(vn.besondererArbeitgeber == 'Sozialversicherungsträger')">Landwirtschaftskammer</option>
-                                    <!-- Diverse Firmenzugehörigkeiten -->
-                                    <option value="Flughafen" *ngIf="(vn.besondererArbeitgeber == 'Diverse Firmenzugehörigkeiten')">Flughafen</option>
-                                    <option value="Fluglinien Österreich" *ngIf="(vn.besondererArbeitgeber == 'Diverse Firmenzugehörigkeiten')">Fluglinien Österreich</option>
-                                    <option value="Gewerkschaft öffentlicher Dienst" *ngIf="(vn.besondererArbeitgeber == 'Diverse Firmenzugehörigkeiten')">Gewerkschaft öffentlicher Dienst</option>
-                                    <option value="ÖBB" *ngIf="(vn.besondererArbeitgeber == 'Diverse Firmenzugehörigkeiten')">ÖBB</option>
-                                    <option value="Post" *ngIf="(vn.besondererArbeitgeber == 'Diverse Firmenzugehörigkeiten')">Post</option>
-                                    <!-- Diverse Firmenzugehörigkeiten -->
-                                    <option value="Arbeitsmarktservice" *ngIf="(vn.besondererArbeitgeber == 'Ausgegliederte Betriebe des Bundes')">Arbeitsmarktservice</option>
-                                    <option value="Austro Control GmbH" *ngIf="(vn.besondererArbeitgeber == 'Ausgegliederte Betriebe des Bundes')">Austro Control GmbH</option>
-                                    <option value="Eisenbahn Hochleistungsstrecken" *ngIf="(vn.besondererArbeitgeber == 'Ausgegliederte Betriebe des Bundes')">Eisenbahn Hochleistungsstrecken</option>
-                                    <option value="Österreichische Bundesforste AG" *ngIf="(vn.besondererArbeitgeber == 'Ausgegliederte Betriebe des Bundes')">Österreichische Bundesforste AG</option>
-                                    <option value="Österreichische Salinen AG" *ngIf="(vn.besondererArbeitgeber == 'Ausgegliederte Betriebe des Bundes')">Österreichische Salinen AG</option>
-                                    <option value="Österreichische Staatsdruckerei AG" *ngIf="(vn.besondererArbeitgeber == 'Ausgegliederte Betriebe des Bundes')">Österreichische Staatsdruckerei AG</option>
-                                    <option value="SchieneninfrastrukturfinanzierungsgmbH" *ngIf="(vn.besondererArbeitgeber == 'Ausgegliederte Betriebe des Bundes')">SchieneninfrastrukturfinanzierungsgmbH</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Dienstort -->
-                        <div class="form-group form-group-sm" *ngIf="(vn.besondererArbeitgeber != '' && vn.besondererArbeitgeber != 'Nein')">
-                            <!-- KV / HE -->
-                            <label for="vnDienstort" class="col-md-4 control-label">Dienstort:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnBesondererDienstort" name="vnBesondererDienstort" class="form-control" [ngClass]="{required:vn.besondererArbeitgeber != '' || vn.besondererArbeitgeber != 'Nein'}" placeholder="Dienstort" aria-label="Dienstort" [(ngModel)]="vn.besondererDienstort" #vnBesondererDienstort="ngModel" [required]="modus == 'angebot' || modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnBesondererDienstort.invalid && (vnBesondererDienstort.dirty || vnBesondererDienstort.touched)">
-                                    <span *ngIf="vnBesondererDienstort.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Berufsbezeichnung -->
-                        <div class="form-group form-group-sm" *ngIf="(isEnabledPUv)">
-                            <!-- KV / HE -->
-                            <label for="vnBerufsbezeichnung" class="col-md-4 control-label">Berufsbezeichnung:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnBerufsbezeichnung" name="vnBerufsbezeichnung" class="form-control" [ngClass]="{required:modus == 'angebot' || modus == 'antrag'}" placeholder="Berufsbezeichnung" aria-label="Berufsbezeichnung" [(ngModel)]="vn.berufsbezeichnung" #vnBerufsbezeichnung="ngModel" [required]="modus == 'angebot' || modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnBerufsbezeichnung.invalid && (vnBerufsbezeichnung.dirty || vnBerufsbezeichnung.touched)">
-                                    <span *ngIf="vnBerufsbezeichnung.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Nationalität -->
-                        <div class="form-group form-group-sm">
-                            <!-- KV / HE -->
-                            <label for="vnNationalitaet" class="col-md-4 control-label">Nationalität:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnNationalitaet" name="vnNationalitaet" class="form-control" [ngClass]="{required:modus == 'angebot' || modus == 'antrag'}" placeholder="Nationalität" aria-label="Nationalität" [(ngModel)]="vn.nationalitaet" #vnNationalitaet="ngModel" [required]="modus == 'angebot' || modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnNationalitaet.invalid && (vnNationalitaet.dirty || vnNationalitaet.touched)">
-                                    <span *ngIf="vnNationalitaet.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <!-- EU-Bürger -->
-                        <div class="form-group form-group-sm" *ngIf="(isEnabledPKfz)">
-                            <!-- KFZ -->
-                            <label for="vnEuBuergerJa" class="col-md-4 control-label">EU-Bürger:</label>
-                            <div class="col-md-8">
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnEuBuergerJa" name="vnEuBuerger" [value]="true" [(ngModel)]="vn.isEuBuerger" /> ja
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnEuBuergerNein" name="vnEuBuerger" [value]="false" [(ngModel)]="vn.isEuBuerger" /> nein
-                                </label>
-                            </div>
-                        </div>
-                        <!-- Probeführerschein -->
-                        <div class="form-group form-group-sm" *ngIf="(isEnabledPKfz)">
-                            <!-- KFZ -->
-                            <label for="vnProbefuehrerscheinJa" class="col-md-4 control-label">Probe&shy;führer&shy;schein:</label>
-                            <div class="col-md-8">
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnProbefuehrerscheinJa" name="vnProbefuehrerschein" [value]="true" [(ngModel)]="vn.hasProbefuehrerschein" /> ja
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnProbefuehrerscheinNein" name="vnProbefuehrerschein" [value]="false" [(ngModel)]="vn.hasProbefuehrerschein" /> nein
-                                </label>
-                            </div>
-                        </div>
-                        <!-- Führerschein seit/von -->
-                        <div class="form-group form-group-sm" *ngIf="(isEnabledPKfz)">
-                            <!-- KFZ -->
-                            <label for="vnFuehrerscheinSeit" class="col-md-4 control-label">Führersch. seit/von:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnFuehrerscheinSeit" name="vnFuehrerscheinSeit" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="Führerschein seit/von" aria-label="Führerschein seit/von" [(ngModel)]="vn.fuehrerscheinSeitVon" #vnFuehrerscheinSeitVon="ngModel" [required]="modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnFuehrerscheinSeitVon.invalid && (vnFuehrerscheinSeitVon.dirty || vnFuehrerscheinSeitVon.touched)">
-                                    <span *ngIf="vnFuehrerscheinSeitVon.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Führerschein-Gruppe -->
-                        <div class="form-group form-group-sm" *ngIf="(isEnabledPKfz)">
-                            <!-- KFZ -->
-                            <label for="vnFuehrerscheinGruppe" class="col-md-4 control-label">Führerscheingruppe:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnFuehrerscheinGruppe" name="vnFuehrerscheinGruppe" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="Führerschein-Gruppe" aria-label="Führerschein-Gruppe" [(ngModel)]="vn.fuehrerscheinGruppe" #vnFuehrerscheinGruppe="ngModel" [required]="modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnFuehrerscheinGruppe.invalid && (vnFuehrerscheinGruppe.dirty || vnFuehrerscheinGruppe.touched)">
-                                    <span *ngIf="vnFuehrerscheinGruppe.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <!-- Ist Vn Kontoinhaber -->
-                        <div class="form-group form-group-sm">
-                            <div class="col-md-12">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="vnIsVnKontoinhaber" name="vnIsVnKontoinhaber" [(ngModel)]="vn.isVnKontoinhaber" /> Versicherungsnehmer ist Kontoinhaber
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Kontoinhaber -->
-                        <div class="form-group form-group-sm" *ngIf="!vn.isVnKontoinhaber">
-                            <!--Versicherungsnehmer ist Kontoinhaber-->
-                            <label for="vnBankdatenKontoinhaber" class="col-md-4 control-label">Kontoinhaber:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnBankdatenKontoinhaber" name="vnBankdatenKontoinhaber" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="Kontoinhaber" aria-label="Kontoinhaber" [(ngModel)]="vn.bankdaten.kontoinhaber" #vnBankdatenKontoinhaber="ngModel" [required]="modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnBankdatenKontoinhaber.invalid && (vnBankdatenKontoinhaber.dirty || vnBankdatenKontoinhaber.touched)">
-                                    <span *ngIf="vnBankdatenKontoinhaber.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Strasse / Nr -->
-                        <div class="form-group form-group-sm" *ngIf="!vn.isVnKontoinhaber">
-                            <!--Versicherungsnehmer ist StraßeNr-->
-                            <label for="vnBankdatenStrasseNr" class="col-md-4 control-label">Straße/Nr.:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnBankdatenStrasseNr" name="vnBankdatenStrasseNr" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="Straße/Nr." aria-label="Straße/Nr." [(ngModel)]="vn.bankdaten.strasseNr" #vnBankdatenStrasseNr="ngModel" [required]="modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnBankdatenStrasseNr.invalid && (vnBankdatenStrasseNr.dirty || vnBankdatenStrasseNr.touched)">
-                                    <span *ngIf="vnBankdatenStrasseNr.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- PLZ/Ort -->
-                        <div class="form-group form-group-sm" *ngIf="!vn.isVnKontoinhaber">
-                            <!--Versicherungsnehmer ist Kontoinhaber-->
-                            <label for="vnBankdatenPlz" class="col-md-4 control-label">PLZ/Ort:</label>
-                            <!-- PLZ -->
-                            <div class="col-md-3">
-                                <input type="text" id="vnBankdatenPlz" name="vnBankdatenPlz" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="PLZ" aria-label="Plz" [(ngModel)]="vn.bankdaten.plz" #vnBankdatenPlz="ngModel" [required]="modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnBankdatenPlz.invalid && (vnBankdatenPlz.dirty || vnBankdatenPlz.touched)">
-                                    <span *ngIf="vnBankdatenPlz.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                            <!-- Ort -->
-                            <div class="col-md-5">
-                                <input type="text" id="vnBankdatenOrt" name="vnBankdatenOrt" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="Ort" aria-label="Ort" [(ngModel)]="vn.bankdaten.ort" #vnBankdatenOrt="ngModel" [required]="modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnBankdatenOrt.invalid && (vnBankdatenOrt.dirty || vnBankdatenOrt.touched)">
-                                    <span *ngIf="vnBankdatenOrt.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- IBAN -->
-                        <div class="form-group form-group-sm">
-                            <!-- FP / KV / UV / UVK / KFZ / HE / RS -->
-                            <label for="vnBankdatenIban" class="col-md-4 control-label">IBAN:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnBankdatenIban" name="vnBankdatenIban" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="IBAN" aria-label="IBAN" [(ngModel)]="vn.bankdaten.iban" #vnBankdatenIban="ngModel" [required]="modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnBankdatenIban.invalid && (vnBankdatenIban.dirty || vnBankdatenIban.touched)">
-                                    <span *ngIf="vnBankdatenIban.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- BIC -->
-                        <div class="form-group form-group-sm">
-                            <!-- FP / KV / UV / UVK / KFZ / HE / RS -->
-                            <label for="vnBankdatenBic" class="col-md-4 control-label">BIC:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnBankdatenBic" name="vnBankdatenBic" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="BIC" aria-label="BIC" [(ngModel)]="vn.bankdaten.bic" #vnBankdatenBic="ngModel" [required]="modus == 'antrag' ? 'required' : null" />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnBankdatenBic.invalid && (vnBankdatenBic.dirty || vnBankdatenBic.touched)">
-                                    <span *ngIf="vnBankdatenBic.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr *ngIf="(isEnabledPUv)" />
-                <div class="row" *ngIf="(isEnabledPUv)">
-                    <div class="col-md-4">
-                        <!-- Bezugsberechtigt im Ablebensfall durch Unfall -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnIsBezugsberechtigtUeberbringer" class="col-md-5 control-label">Bezugs&shy;berechtigt im Ablebensfall durch Unfall:</label>
-                            <div class="col-md-7">
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnIsBezugsberechtigtUeberbringer" name="vnIsBezugsberechtigt" [value]="1" [(ngModel)]="vn.isBezugsberechtigt" /> der Überbringer der Polizze
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnIsBezugsberechtigtErben" name="vnIsBezugsberechtigt" [value]="2" [(ngModel)]="vn.isBezugsberechtigt" /> die Erben
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnIsBezugsberechtigtPerson" name="vnIsBezugsberechtigt" [value]="3" [(ngModel)]="vn.isBezugsberechtigt" /> nachstehend bezeichnete Person/Personen
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3" *ngIf="(vn.isBezugsberechtigt == 3)">
-                        <!-- Bezugsberechtigt Vorname -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnBezugsberechtigtVorname" class="col-md-4 control-label">Vorname:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnBezugsberechtigtVorname" name="vnBezugsberechtigtVorname" class="form-control required" placeholder="Vorname" aria-label="Vorname" [(ngModel)]="vn.bezugsberechtigt.vorname" #vnBezugsberechtigtVorname="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnBezugsberechtigtVorname.invalid && (vnBezugsberechtigtVorname.dirty || vnBezugsberechtigtVorname.touched)">
-                                    <span *ngIf="vnBezugsberechtigtVorname.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Bezugsberechtigt Nachname -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnBezugsberechtigtNachname" class="col-md-4 control-label">Nachname:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnBezugsberechtigtNachname" name="vnBezugsberechtigtNachname" class="form-control required" placeholder="Nachname" aria-label="Nachname" [(ngModel)]="vn.bezugsberechtigt.nachname" #vnBezugsberechtigtNachname="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnBezugsberechtigtNachname.invalid && (vnBezugsberechtigtNachname.dirty || vnBezugsberechtigtNachname.touched)">
-                                    <span *ngIf="vnBezugsberechtigtNachname.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Bezugsberechtigt Geburtsdatum -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnBezugsberechtigtGebDatum" class="col-md-4 control-label">Geburtsdatum:</label>
-                            <div class="col-md-8">
-                                <input type="text" id="vnBezugsberechtigtGebDatum" name="vnBezugsberechtigtGebDatum" class="form-control required" placeholder="Geburtsdatum" aria-label="Geburtsdatum" [(ngModel)]="vn.bezugsberechtigt.geburtsdatum" #vnBezugsberechtigtGebDatum="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnBezugsberechtigtGebDatum.invalid && (vnBezugsberechtigtGebDatum.dirty || vnBezugsberechtigtGebDatum.touched)">
-                                    <span *ngIf="vnBezugsberechtigtGebDatum.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5" *ngIf="(vn.isBezugsberechtigt == 3)">
-                        <!-- Bezugsberechtigt weitere Personen -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnBezugsberechtigtWeiterePerson" class="col-md-3 control-label">Weitere Personen:</label>
-                            <div class="col-md-9">
-                                <textarea id="vnBezugsberechtigtWeiterePerson" name="vnBezugsberechtigtWeiterePerson" class="form-control" rows="6" placeholder="Weitere bezugsberechtigte Personen" aria-label="Weitere bezugsberechtigte Personen" [(ngModel)]="vn.bezugsberechtigt.weiterePerson"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr *ngIf="(isEnabledPKfz || isEnabledPRs)" /> <!--KFZ / RS-->
-                <div class="row" *ngIf="(isEnabledPKfz || isEnabledPRs)">
-                    <!-- KFZ / RS -->
-                    <div class="col-md-4">
-                        <!-- Weitere Versicherungsnehmer -->
-                        <div class="form-group form-group-sm">
-                            <div class="col-md-12">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="vnHasWeitereVn" name="vnHasWeitereVn" [(ngModel)]="vn.hasWeitereVn" /> Weitere Versicherungsnehmer
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4" *ngIf="vn.hasWeitereVn">
-                        <!-- Anrede / Titel -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnWeitereVnAnrede" class="col-md-3 control-label">Anrede/Titel:</label>
-                            <!-- Anrede -->
-                            <div class="col-md-4">
-                                <select id="vnWeitereVnAnrede" name="vnWeitereVnAnrede" class="form-control" aria-label="Anrede" [(ngModel)]="vn.weitereVn.anrede">
-                                    <option [value]="0" disabled hidden>Anrede</option>
-                                    <option [value]="1">Herr</option>
-                                    <option [value]="2">Frau</option>
-                                    <option [value]="3">Familie</option>
-                                    <option [value]="4">Firma</option>
-                                </select>
-                            </div>
-                            <!-- Titel -->
-                            <div class="col-md-5">
-                                <input type="text" id="vnWeitereVnTitel" name="vnWeitereVnTitel" class="form-control" placeholder="Titel" aria-label="Titel" [(ngModel)]="vn.weitereVn.titel" />
-                            </div>
-                        </div>
-                        <!-- Vorname -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnWeitereVnVorname" class="col-md-3 control-label">Vorname:</label>
-                            <div class="col-md-9">
-                                <input type="text" id="vnWeitereVnVorname" name="vnWeitereVnVorname" class="form-control required" placeholder="Vorname" aria-label="Vorname" [(ngModel)]="vn.weitereVn.vorname" #vnWeitereVnVorname="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnWeitereVnVorname.invalid && (vnWeitereVnVorname.dirty || vnWeitereVnVorname.touched)">
-                                    <span *ngIf="vnWeitereVnVorname.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Nachname -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnWeitereVnNachname" class="col-md-3 control-label">Nachname:</label>
-                            <div class="col-md-9">
-                                <input type="text" id="vnWeitereVnNachname" name="vnWeitereVnNachname" class="form-control required" placeholder="Nachname" aria-label="Nachname" [(ngModel)]="vn.weitereVn.nachname" #vnWeitereVnNachname="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnWeitereVnNachname.invalid && (vnWeitereVnNachname.dirty || vnWeitereVnNachname.touched)">
-                                    <span *ngIf="vnWeitereVnNachname.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Geburtsdatum -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnWeitereVnGebDatum" class="col-md-3 control-label">Geburtsdatum:</label>
-                            <div class="col-md-9">
-                                <input type="text" id="vnWeitereVnGebDatum" name="vnWeitereVnGebDatum" class="form-control required" placeholder="Geburtsdatum" aria-label="Geburtsdatum" [(ngModel)]="vn.weitereVn.geburtsdatum" #vnWeitereVnGebDatum="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnWeitereVnGebDatum.invalid && (vnWeitereVnGebDatum.dirty || vnWeitereVnGebDatum.touched)">
-                                    <span *ngIf="vnWeitereVnGebDatum.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4" *ngIf="vn.hasWeitereVn">
-                        <!-- Strasse / Nr -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnWeitereVnStrasseNr" class="col-md-3 control-label">Straße/Nr.:</label>
-                            <div class="col-md-9">
-                                <input type="text" id="vnWeitereVnStrasseNr" name="vnWeitereVnStrasseNr" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="Straße" aria-label="Straße" [(ngModel)]="vn.weitereVn.adresse.strasseNr" #vnWeitereVnStrasseNr="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnWeitereVnStrasseNr.invalid && (vnWeitereVnStrasseNr.dirty || vnWeitereVnStrasseNr.touched)">
-                                    <span *ngIf="vnWeitereVnStrasseNr.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- PLZ/Ort -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnWeitereVnPlz" class="col-md-3 control-label">PLZ/Ort:</label>
-                            <!-- PLZ -->
-                            <div class="col-md-3">
-                                <input type="text" id="vnWeitereVnPlz" name="vnWeitereVnPlz" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="Plz" aria-label="Plz" [(ngModel)]="vn.weitereVn.adresse.plz" #vnWeitereVnPlz="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnWeitereVnPlz.invalid && (vnWeitereVnPlz.dirty || vnWeitereVnPlz.touched)">
-                                    <span *ngIf="vnWeitereVnPlz.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                            <!-- Ort -->
-                            <div class="col-md-6">
-                                <input type="text" id="vnWeitereVnOrt" name="vnWeitereVnOrt" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="Ort" aria-label="Ort" [(ngModel)]="vn.weitereVn.adresse.ort" #vnWeitereVnOrt="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnWeitereVnOrt.invalid && (vnWeitereVnOrt.dirty || vnWeitereVnOrt.touched)">
-                                    <span *ngIf="vnWeitereVnOrt.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Art der Beschäftigung -->
-                        <div class="form-group form-group-sm" *ngIf="vn.hasWeitereVn && isEnabledPRs">
-                            <label for="vnWeitereVnArtBeschaeftigungUnselbstaendig" class="col-md-3 control-label">Art der Beschäftigung:</label>
-                            <div class="col-md-9">
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnWeitereVnArtBeschaeftigungUnselbstaendig" name="vnWeitereVnArtBeschaeftigung" [value]="2" [(ngModel)]="vn.weitereVn.artBeschaeftigung" /> unselbständig
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" id="vnWeitereVnArtBeschaeftigungSelbstaendig" name="vnWeitereVnArtBeschaeftigung" [value]="1" [(ngModel)]="vn.weitereVn.artBeschaeftigung" /> selbständig
-                                </label>
-                            </div>
-                        </div>
-                        <!-- Beruf -->
-                        <div class="form-group form-group-sm" *ngIf="vn.hasWeitereVn && isEnabledPRs">
-                            <label for="vnWeitereVnBeruf" class="col-md-3 control-label">Beruf:</label>
-                            <div class="col-md-9">
-                                <select id="vnWeitereVnBeruf" name="vnWeitereVnBeruf" class="form-control" aria-label="Beruf" [(ngModel)]="vn.weitereVn.beruf">
-                                    <option [value]="undefined">Beruf</option>
-                                    <option [value]="'kan'">keine Angabe</option>
-                                    <option [value]="'nbt'">nicht berufstätig</option>
-                                    <option [value]="'aht'">Arbeiter im Hoch- und Tiefbau</option>
-                                    <option [value]="'lwf'">Landwirte, Wald- und Forstarbeiter</option>
-                                    <option [value]="'dsz'">Dachdecker, Spengler, Zimmermann</option>
-                                    <option [value]="'hbv'">Holzbearbeiter, -verarbeiter</option>
-                                    <option [value]="'pia'">Polizist im Außendienst</option>
-                                    <option [value]="'azt'">Arzt, Zahnarzt, Tierarzt, Zahntechniker oder Musiker (erhöhte Gliedertaxe)</option>
-                                    <option [value]="'aab'">Alle anderen Berufe</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr *ngIf="(isEnabledPKfz || isEnabledPHe)" /> <!--KFZ / HE-->
-                <div class="row" *ngIf="(isEnabledPKfz || isEnabledPHe)">
-                    <!-- KFZ / HE -->
-                    <div class="col-md-4">
-                        <!-- Abweichende Inkassoadresse -->
-                        <div class="form-group form-group-sm">
-                            <div class="col-md-12">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="vnHasAbweichendeInkassoAdr" name="vnHasAbweichendeInkassoAdr" [(ngModel)]="vn.hasAbweichendeInkassoAdr" /> Inkassoadresse abweichend
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="alert alert-info">
-                            <strong>Information!</strong><br />
-                            Inkassoadresse nur ausfüllen, wenn von Adresse abweichend.
-                        </div>
-                    </div>
-                    <div class="col-md-4" *ngIf="vn.hasAbweichendeInkassoAdr">
-                        <!-- vn.hasAbweichendeInkassoAdr -->
-                        <!-- Anrede / Titel -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnInkassoAdrAnrede" class="col-md-3 control-label">Anrede/Titel:</label>
-                            <!-- Anrede -->
-                            <div class="col-md-4">
-                                <select id="vnInkassoAdrAnrede" name="vnInkassoAdrAnrede" class="form-control" aria-label="Anrede" [(ngModel)]="vn.inkassoAdr.anrede">
-                                    <option [value]="0" disabled hidden>Anrede</option>
-                                    <option [value]="1">Herr</option>
-                                    <option [value]="2">Frau</option>
-                                </select>
-                            </div>
-                            <!-- Titel -->
-                            <div class="col-md-5">
-                                <input type="text" id="vnInkassoAdrTitel" name="vnInkassoAdrTitel" class="form-control" placeholder="Titel" aria-label="Titel" [(ngModel)]="vn.inkassoAdr.titel" />
-                            </div>
-                        </div>
-                        <!-- Vorname -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnInkassoAdrVorname" class="col-md-3 control-label">Vorname:</label>
-                            <div class="col-md-9">
-                                <input type="text" id="vnInkassoAdrVorname" name="vnInkassoAdrVorname" class="form-control" [ngClass]="{required:modus == 'angebot' || modus == 'antrag'}" placeholder="Vorname" aria-label="Vorname" [(ngModel)]="vn.inkassoAdr.vorname" #vnInkassoAdrVorname="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnInkassoAdrVorname.invalid && (vnInkassoAdrVorname.dirty || vnInkassoAdrVorname.touched)">
-                                    <span *ngIf="vnInkassoAdrVorname.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Nachname -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnInkassoAdrNachname" class="col-md-3 control-label">Nachname:</label>
-                            <div class="col-md-9">
-                                <input type="text" id="vnInkassoAdrNachname" name="vnInkassoAdrNachname" class="form-control" [ngClass]="{required:modus == 'angebot' || modus == 'antrag'}" placeholder="Nachname" aria-label="Nachname" [(ngModel)]="vn.inkassoAdr.nachname" #vnInkassoAdrNachname="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnInkassoAdrNachname.invalid && (vnInkassoAdrNachname.dirty || vnInkassoAdrNachname.touched)">
-                                    <span *ngIf="vnInkassoAdrNachname.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4" *ngIf="vn.hasAbweichendeInkassoAdr">
-                        <!-- Strasse / Nr -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnInkassoAdrStrasseNr" class="col-md-3 control-label">Straße/Nr.:</label>
-                            <div class="col-md-9">
-                                <input type="text" id="vnInkassoAdrStrasseNr" name="vnInkassoAdrStrasseNr" class="form-control required" [ngClass]="{required:modus == 'antrag'}" placeholder="Straße" aria-label="Straße" [(ngModel)]="vn.inkassoAdr.adresse.strasseNr" #vnInkassoAdrStrasseNr="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnInkassoAdrStrasseNr.invalid && (vnInkassoAdrStrasseNr.dirty || vnInkassoAdrStrasseNr.touched)">
-                                    <span *ngIf="vnInkassoAdrStrasseNr.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- PLZ/Ort -->
-                        <div class="form-group form-group-sm">
-                            <label for="vnInkassoAdrPlz" class="col-md-3 control-label">PLZ/Ort:</label>
-                            <!-- PLZ -->
-                            <div class="col-md-3">
-                                <input type="text" id="vnInkassoAdrPlz" name="vnInkassoAdrPlz" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="Plz" aria-label="Plz" [(ngModel)]="vn.inkassoAdr.adresse.plz" #vnInkassoAdrPlz="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnInkassoAdrPlz.invalid && (vnInkassoAdrPlz.dirty || vnInkassoAdrPlz.touched)">
-                                    <span *ngIf="vnInkassoAdrPlz.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                            <!-- Ort -->
-                            <div class="col-md-6">
-                                <input type="text" id="vnInkassoAdrOrt" name="vnInkassoAdrOrt" class="form-control" [ngClass]="{required:modus == 'antrag'}" placeholder="Ort" aria-label="Ort" [(ngModel)]="vn.inkassoAdr.adresse.ort" #vnInkassoAdrOrt="ngModel" required />
-                                <div class="alert alert-danger" style="margin-top:5px;" role="alert" *ngIf="vnInkassoAdrOrt.invalid && (vnInkassoAdrOrt.dirty || vnInkassoAdrOrt.touched)">
-                                    <span *ngIf="vnInkassoAdrOrt.errors.required">
-                                        Pflichtfeld!
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr />
-                <div class="row">
-                    <div class="col-lg-3 col-lg-offset-9">
-                        <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-default" (click)="onCancel()">
-                                    Abbrechen
-                                </button>
-                            </div>
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-success" (click)="onOk(vn)" data-style="expand-left" [disabled]="!formVnEdit.form.valid">
-                                    Übernehmen
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
     </div>
-    
-    
 
 
-   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </body>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
