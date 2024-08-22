@@ -1,14 +1,42 @@
-   Private Sub FindValueFromDropDownList(ByVal Text As String)
-       Dim selectedValue As String = String.Empty
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using VertragsLibrary;
 
-       ' Durchsuche die DropDownList Items
-       For Each item As ListItem In ddlColorList.Items
-           If item.Text = Text Then
-               selectedValue = item.Value
-               Exit For
-           End If
-       Next
+namespace VertragslibraryToSqlDB.Service
+{
+    internal class VertragService : IVertragService
+    {
+        public TempVertrag? GetVertrag(int Id)
+        {
 
-       Dim PassenderValue As String = selectedValue
+            using var context = new VertragslibraryContext();
+            // Angenommen 'Vertrag' ist der Entitätsname in Ihrem Kontext, der auf Verträge verweist
+            var vertrag = context.Vertrag
+                .Include(v => v.Fahrzeuge) // Bezieht Fahrzeuge ein, die zum Vertrag gehören
+                .ThenInclude(f => f.ProduktdatenKFZ) // Bezieht ProduktdatenKFZ ein, die zu jedem Fahrzeug gehören
+                .Include(v => v.Vertragsdaten) // Bezieht Vertragsdaten ein
+                .Include(v => v.Versicherungsnehmer) // Bezieht Versicherungsnehmer ein
+                .Include(v => v.Zahlungsdaten) // Bezieht Zahlungsdaten ein
+                .Include(v => v.Inkassodaten) // Bezieht Inkassodaten ein
+                .Include(v => v.Sachbearbeiter) // Bezieht Sachbearbeiter ein
+                .FirstOrDefault(v => v.Id == Id); // Angenommen 'Id' ist der Primärschlüssel für Vertrag
+          
+            if (vertrag == null)
+            {
+                Console.WriteLine($"Kein Vertrag mit der Id= {Id} gefunden!");
+            }
 
-   End Sub
+            return vertrag;
+             
+        }
+
+        public void UpdateVertrag(TempVertrag vertrag)
+        {
+            ??????
+        }
+    }
+}
